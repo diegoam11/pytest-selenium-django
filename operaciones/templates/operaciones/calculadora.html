@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    <h1>Calculadora Simple</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="number" name="num1" placeholder="Número 1" required>
+        <input type="number" name="num2" placeholder="Número 2" required>
+        <button type="submit" name="operacion" value="sumar">Sumar</button>
+        <button type="submit" name="operacion" value="restar">Restar</button>
+        <button type="submit" name="operacion" value="multiplicar">Multiplicar</button>
+        <button type="submit" name="operacion" value="dividir">Dividir</button>
+    </form>
+    {% if resultado is not None %}
+        <h2>Resultado: {{ resultado }}</h2>
+    {% endif %}
+    {% if error %}
+        <h2 style="color: red;">Error: {{ error }}</h2>
+    {% endif %}
+</body>
+</html>
